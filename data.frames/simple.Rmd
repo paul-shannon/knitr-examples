@@ -1,0 +1,31 @@
+---
+title: "Knitr/R Markdown: explore output controls"
+output: html_document
+vignette: >
+  %\VignetteIndexEntry{"Explore output controls"}
+  %\VignetteEngine{knitr::knitr}
+  %\VignetteEncoding{UTF-8}
+---
+
+### 1. tasteful display of a data.frame
+```{r tasteful data.frame, prompt=FALSE, message=FALSE, echo=TRUE, results="show"}
+knitr::kable(mtcars[1:5,], caption='mtcars')
+```
+
+### 2. tasteful display of a data.frame, no code, no caption
+```{r tasteful data.frame no code, prompt=FALSE, message=FALSE, echo=FALSE, results="show"}
+knitr::kable(mtcars[1:5,])
+```
+### 3. tasteful display of a data.frame, no code, no caption, long colnames
+```{r tasteful data.frame no code, long colnames, prompt=FALSE, message=FALSE, echo=TRUE, results="show"}
+knitr::kable(mtcars[1:5,],
+        col.names=c("miles per gallon", "cylinders", "displacement", "horsepower", "rear axle ratio",
+                    "weight", "quarter mile time", "engine type", "transmission", "forward gears", "carburetors"))
+```
+
+### 3. a trena model
+```{r trena model, prompt=FALSE, message=FALSE, echo=TRUE, results="show"}
+tbl <- get(load("model.RData"))
+knitr::kable(tbl)
+```
+

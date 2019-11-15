@@ -65,8 +65,14 @@ knitr::kable(mtcars[1:5,], caption='mtcars')
 ```{r tasteful data.frame no code, prompt=FALSE, message=FALSE, echo=FALSE, results="show"}
 knitr::kable(mtcars[1:5,])
 ```
+### 9. tasteful display of a data.frame, no code, no caption, long colnames
+```{r tasteful data.frame no code, long colnames, prompt=FALSE, message=FALSE, echo=TRUE, results="show"}
+knitr::kable(mtcars[1:5,],
+        col.names=c("miles per gallon", "cylinders", "displacement", "horsepower", "rear axle ratio",
+                    "weight", "quarter mile time", "engine type", "transmission", "forward gears", "carburetors"))
+```
 
-### 9. show png image file
+### 10. show png image file
 ```{r show png file, eval=TRUE, echo=FALSE}
 knitr::include_graphics("igvR-nfe2-regulation.png")
 ```
